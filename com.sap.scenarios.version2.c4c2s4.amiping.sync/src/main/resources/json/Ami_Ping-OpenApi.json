@@ -1,0 +1,1136 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"title": "Open Api Specification for isuEquipment service",
+		"version": "1.0.0",
+		"description": "ISU Equipment Details \n\nGet ISU Equipment details for a premise installment"
+	},
+	"servers": [
+		{
+			"url": "https://{hostname}",
+			"description": "Example of server url is https://my1234567.crm.cloud.sap",
+			"variables": {
+				"hostname": {
+					"default": ""
+				}
+			}
+		}
+	],
+	"components": {
+		"securitySchemes": {
+			"basicAuthentication": {
+				"type": "http",
+				"scheme": "basic"
+			}
+		},
+		"schemas": {
+			"error": {
+				"type": "object",
+				"properties": {
+					"error": {
+						"type": "object",
+						"properties": {
+							"code": {
+								"type": "string"
+							},
+							"details": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										},
+										"target": {
+											"type": "string"
+										}
+									}
+								}
+							},
+							"message": {
+								"type": "string"
+							},
+							"target": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"IsuEquipmentqueryresponse": {
+				"title": "IsuEquipment query response",
+				"type": "object",
+				"properties": {
+					"count": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"value": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"premise": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 10,
+									"title": "Premise"
+								},
+								"keyDate": {
+									"type": "string",
+									"format": "date",
+									"nullable": true
+								},
+								"deviceCategory": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 40,
+									"title": "Device Category"
+								},
+								"equipmentNumber": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 18,
+									"title": "Equipment Number"
+								},
+								"installation": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 10,
+									"title": "Installation"
+								},
+								"deviceCategoryText": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 30,
+									"title": "Device Category Text"
+								},
+								"device": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 18,
+									"title": "Device"
+								},
+								"equipmentType": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 1,
+									"title": "Equipment Type"
+								},
+								"equipmentTypeText": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 30,
+									"title": "Equipment Type Text"
+								},
+								"division": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 2,
+									"title": "Division"
+								},
+								"divisionCategory": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 2,
+									"title": "Division Category"
+								},
+								"systemStatus": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 40,
+									"title": "System Status"
+								},
+								"systemStatusText": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 250,
+									"title": "System Status Text"
+								},
+								"userStatus": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 40,
+									"title": "User Status"
+								},
+								"userStatusText": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 250,
+									"title": "User Status Text"
+								},
+								"amiStatus": {
+									"type": "boolean",
+									"nullable": true
+								},
+								"registerGroup": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 8,
+									"title": "lbl_registerGroup"
+								},
+								"installationDate": {
+									"type": "string",
+									"format": "date",
+									"nullable": true
+								},
+								"removalDate": {
+									"type": "string",
+									"format": "date",
+									"nullable": true
+								},
+								"timeSliceValidFrom": {
+									"type": "string",
+									"format": "date",
+									"nullable": true
+								},
+								"timeSliceValidTo": {
+									"type": "string",
+									"format": "date",
+									"nullable": true
+								},
+								"manufacturerSerialNo": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 30,
+									"title": "Manufacturer Serial Number"
+								},
+								"premiseAddress": {
+									"type": "string",
+									"nullable": true,
+									"maxLength": 250,
+									"title": "Premise Address"
+								},
+								"deviceLocation": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"premise": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 10,
+												"title": "Premise"
+											},
+											"keyDate": {
+												"type": "string",
+												"format": "date",
+												"nullable": true
+											},
+											"deviceCategory": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 40,
+												"title": "Device Category"
+											},
+											"equipmentNumber": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 18,
+												"title": "Equipment Number"
+											},
+											"installation": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 10,
+												"title": "Installation"
+											},
+											"device": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 18,
+												"title": "Device"
+											},
+											"deviceLocationId": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 30,
+												"title": "Device Location ID"
+											},
+											"deviceLocationText": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 40,
+												"title": "Device Location Text"
+											},
+											"location": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 30,
+												"title": "Location"
+											},
+											"additionalLocation": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 30,
+												"title": "Additional Location"
+											},
+											"deviceLocationAddress": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 250,
+												"title": "Device Location Address"
+											},
+											"systemStatus": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 40,
+												"title": "System Status"
+											},
+											"systemStatusText": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 250,
+												"title": "System Status Text"
+											},
+											"notes": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"sequenceNumber": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 2,
+															"title": "Sequence Number"
+														},
+														"noteId": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 2,
+															"title": "Note ID"
+														},
+														"noteText": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Note Text"
+														},
+														"priority": {
+															"type": "number",
+															"nullable": true,
+															"format": "int64"
+														},
+														"addtxt1": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Additional Text 1"
+														},
+														"addtxt2": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Additional Text 2"
+														},
+														"addtxt3": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Additional Text 3"
+														},
+														"addtxt4": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Additional Text 4"
+														},
+														"addtxt5": {
+															"type": "string",
+															"nullable": true,
+															"maxLength": 50,
+															"title": "Additional Text 5"
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"amiCapability": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"capabilities": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 4,
+												"title": "Capabilities"
+											},
+											"capabilitiesTxt": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 40,
+												"title": "Capabilities Text"
+											},
+											"amsRelevant": {
+												"type": "boolean",
+												"nullable": true
+											},
+											"amcgRelevant": {
+												"type": "boolean",
+												"nullable": true
+											},
+											"amicagRelevant": {
+												"type": "boolean",
+												"nullable": true
+											},
+											"inherited": {
+												"type": "boolean",
+												"nullable": true
+											},
+											"overallRelevant": {
+												"type": "boolean",
+												"nullable": true
+											}
+										}
+									}
+								},
+								"amiOperationalState": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"operationalStateId": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 32,
+												"title": "ID for Operational State of an Advanced Meter"
+											},
+											"statusCode": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 4,
+												"title": "Status Code of Advanced Meter"
+											},
+											"statusCounter": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 4,
+												"title": "Sequence Number of Status"
+											},
+											"statusDate": {
+												"type": "string",
+												"format": "date",
+												"nullable": true
+											},
+											"statusTime": {
+												"type": "string",
+												"format": "time",
+												"nullable": true
+											},
+											"statusValue": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 46,
+												"title": "Status Value"
+											},
+											"unitOfMeasure": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 3,
+												"title": "Unit of Measurement of Voltage or Measured Pressure"
+											},
+											"stateIndicator": {
+												"type": "boolean",
+												"nullable": true
+											},
+											"stateSource": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 1,
+												"title": "Source System From Which Data is Requested"
+											},
+											"statePriority": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 1,
+												"title": "Priority of Operational State Request for Advanced Meter"
+											},
+											"stateLanguage": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 2,
+												"title": "Language Key for Operational State of Advanced Meter"
+											},
+											"stateInformation": {
+												"type": "string",
+												"nullable": true,
+												"maxLength": 40,
+												"title": "Information About Status of Advanced Meter"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"info": {
+				"type": "object",
+				"properties": {
+					"info": {
+						"type": "object",
+						"properties": {
+							"code": {
+								"type": "string"
+							},
+							"details": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"target": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										},
+										"severity": {
+											"type": "string",
+											"enum": [
+												"ERROR",
+												"WARNING",
+												"INFO"
+											]
+										}
+									}
+								}
+							},
+							"message": {
+								"type": "string"
+							},
+							"target": {
+								"type": "string"
+							},
+							"severity": {
+								"type": "string",
+								"enum": [
+									"ERROR",
+									"WARNING",
+									"INFO"
+								]
+							}
+						}
+					}
+				}
+			},
+			"IsuEquipmentcreaterequest": {
+				"title": "IsuEquipment create request",
+				"type": "object",
+				"properties": {
+					
+				}
+			},
+			"IsuEquipmentfile": {
+				"title": "IsuEquipment file",
+				"type": "object",
+				"properties": {
+					"value": {
+						"type": "object",
+						"properties": {
+							"premise": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 10,
+								"title": "Premise"
+							},
+							"keyDate": {
+								"type": "string",
+								"format": "date",
+								"nullable": true
+							},
+							"deviceCategory": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 40,
+								"title": "Device Category"
+							},
+							"equipmentNumber": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 18,
+								"title": "Equipment Number"
+							},
+							"installation": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 10,
+								"title": "Installation"
+							},
+							"deviceCategoryText": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 30,
+								"title": "Device Category Text"
+							},
+							"device": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 18,
+								"title": "Device"
+							},
+							"equipmentType": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 1,
+								"title": "Equipment Type"
+							},
+							"equipmentTypeText": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 30,
+								"title": "Equipment Type Text"
+							},
+							"division": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 2,
+								"title": "Division"
+							},
+							"divisionCategory": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 2,
+								"title": "Division Category"
+							},
+							"systemStatus": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 40,
+								"title": "System Status"
+							},
+							"systemStatusText": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 250,
+								"title": "System Status Text"
+							},
+							"userStatus": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 40,
+								"title": "User Status"
+							},
+							"userStatusText": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 250,
+								"title": "User Status Text"
+							},
+							"amiStatus": {
+								"type": "boolean",
+								"nullable": true
+							},
+							"registerGroup": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 8,
+								"title": "lbl_registerGroup"
+							},
+							"installationDate": {
+								"type": "string",
+								"format": "date",
+								"nullable": true
+							},
+							"removalDate": {
+								"type": "string",
+								"format": "date",
+								"nullable": true
+							},
+							"timeSliceValidFrom": {
+								"type": "string",
+								"format": "date",
+								"nullable": true
+							},
+							"timeSliceValidTo": {
+								"type": "string",
+								"format": "date",
+								"nullable": true
+							},
+							"manufacturerSerialNo": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 30,
+								"title": "Manufacturer Serial Number"
+							},
+							"premiseAddress": {
+								"type": "string",
+								"nullable": true,
+								"maxLength": 250,
+								"title": "Premise Address"
+							},
+							"deviceLocation": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"premise": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 10,
+											"title": "Premise"
+										},
+										"keyDate": {
+											"type": "string",
+											"format": "date",
+											"nullable": true
+										},
+										"deviceCategory": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 40,
+											"title": "Device Category"
+										},
+										"equipmentNumber": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 18,
+											"title": "Equipment Number"
+										},
+										"installation": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 10,
+											"title": "Installation"
+										},
+										"device": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 18,
+											"title": "Device"
+										},
+										"deviceLocationId": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 30,
+											"title": "Device Location ID"
+										},
+										"deviceLocationText": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 40,
+											"title": "Device Location Text"
+										},
+										"location": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 30,
+											"title": "Location"
+										},
+										"additionalLocation": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 30,
+											"title": "Additional Location"
+										},
+										"deviceLocationAddress": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 250,
+											"title": "Device Location Address"
+										},
+										"systemStatus": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 40,
+											"title": "System Status"
+										},
+										"systemStatusText": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 250,
+											"title": "System Status Text"
+										},
+										"notes": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"sequenceNumber": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 2,
+														"title": "Sequence Number"
+													},
+													"noteId": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 2,
+														"title": "Note ID"
+													},
+													"noteText": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Note Text"
+													},
+													"priority": {
+														"type": "number",
+														"nullable": true,
+														"format": "int64"
+													},
+													"addtxt1": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Additional Text 1"
+													},
+													"addtxt2": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Additional Text 2"
+													},
+													"addtxt3": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Additional Text 3"
+													},
+													"addtxt4": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Additional Text 4"
+													},
+													"addtxt5": {
+														"type": "string",
+														"nullable": true,
+														"maxLength": 50,
+														"title": "Additional Text 5"
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"amiCapability": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"capabilities": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 4,
+											"title": "Capabilities"
+										},
+										"capabilitiesTxt": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 40,
+											"title": "Capabilities Text"
+										},
+										"amsRelevant": {
+											"type": "boolean",
+											"nullable": true
+										},
+										"amcgRelevant": {
+											"type": "boolean",
+											"nullable": true
+										},
+										"amicagRelevant": {
+											"type": "boolean",
+											"nullable": true
+										},
+										"inherited": {
+											"type": "boolean",
+											"nullable": true
+										},
+										"overallRelevant": {
+											"type": "boolean",
+											"nullable": true
+										}
+									}
+								}
+							},
+							"amiOperationalState": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"operationalStateId": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 32,
+											"title": "ID for Operational State of an Advanced Meter"
+										},
+										"statusCode": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 4,
+											"title": "Status Code of Advanced Meter"
+										},
+										"statusCounter": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 4,
+											"title": "Sequence Number of Status"
+										},
+										"statusDate": {
+											"type": "string",
+											"format": "date",
+											"nullable": true
+										},
+										"statusTime": {
+											"type": "string",
+											"format": "time",
+											"nullable": true
+										},
+										"statusValue": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 46,
+											"title": "Status Value"
+										},
+										"unitOfMeasure": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 3,
+											"title": "Unit of Measurement of Voltage or Measured Pressure"
+										},
+										"stateIndicator": {
+											"type": "boolean",
+											"nullable": true
+										},
+										"stateSource": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 1,
+											"title": "Source System From Which Data is Requested"
+										},
+										"statePriority": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 1,
+											"title": "Priority of Operational State Request for Advanced Meter"
+										},
+										"stateLanguage": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 2,
+											"title": "Language Key for Operational State of Advanced Meter"
+										},
+										"stateInformation": {
+											"type": "string",
+											"nullable": true,
+											"maxLength": 40,
+											"title": "Information About Status of Advanced Meter"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"security": [
+		{
+			"basicAuthentication": []
+		}
+	],
+	"paths": {
+		"/sap/c4c/api/v1/premise-integration-service/isuEquipment": {
+			"get": {
+				"operationId": "querypremiseservice_isuEquipment",
+				"tags": [
+					"IsuEquipment"
+				],
+				"summary": "Retrieve ISU Equipment details for Premise installment.",
+				"description": "Specify query parameters to retrieve ISU Equipment details.",
+				"parameters": [
+					{
+						"name": "$filter",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"examples": {
+							"one": {
+								"value": "installation eq 193764",
+								"summary": "ISU Equipment Details"
+							}
+						},
+						"description": "Retrieve ISU Equipment for premise installment"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Retrieved ISU Equipment details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/IsuEquipmentqueryresponse"
+										},
+										{
+											"$ref": "#/components/schemas/info"
+										}
+									]
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized.\n\nThis error is caused when the request has not been applied because there are no valid authentication credentials for the target resource."
+					},
+					"403": {
+						"description": "Forbidden.\n\nThis client error code indicates that the server understood the request but refuses to authorize it."
+					},
+					"500": {
+						"description": "Internal Server Error.\n\nFailed to query service details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/error"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"operationId": "createpremiseservice_isuEquipment",
+				"tags": [
+					"IsuEquipment"
+				],
+				"summary": "Create data",
+				"parameters": [],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IsuEquipmentcreaterequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "201 CREATED",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IsuEquipmentfile"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "400 BAD_REQUEST",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/error"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 UNAUTHORIZED"
+					},
+					"403": {
+						"description": "403 FORBIDDEN"
+					},
+					"404": {
+						"description": "404 NOT_FOUND"
+					},
+					"500": {
+						"description": "500 INTERNAL_SERVER_ERROR",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/sap/c4c/api/v1/premise-integration-service/isuEquipment/{equipmentNumber}/amiPing": {
+			"post": {
+				"operationId": "postpremiseservice_isuEquipment/{equipmentNumber}/amiPing",
+				"tags": [
+					"AMI Ping"
+				],
+				"summary": "AMI Ping",
+				"description": "Advance Meter Reading(AMI) Ping",
+				"parameters": [
+					{
+						"name": "equipmentNumber",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"description": "Equipment Number"
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IsuEquipmentcreaterequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "AMI Ping",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/IsuEquipmentfile"
+										},
+										{
+											"$ref": "#/components/schemas/info"
+										}
+									]
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized.\n\nThis error is caused when the request has not been applied because there are no valid authentication credentials for the target resource."
+					},
+					"403": {
+						"description": "Forbidden.\n\nThis client error code indicates that the server understood the request but refuses to authorize it."
+					},
+					"500": {
+						"description": "Internal Server Error.\n\nFailed to query service details.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/error"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"x-sap-shortText": "Manage entities from isuEquipment service.",
+	"x-sap-extensible": {
+		"supported": "automatic",
+		"description": "You can create extension fields in the isuEquipment API by following the steps mentioned in https://help.sap.com/docs/CX_NG_SVC/2c87cece32844c91836e535aef8f9642/d3bdfac0c6b141c0bac27408c3ed159f.html?locale=en-US. The newly created extensions will be available in the API request and response body."
+	}
+}

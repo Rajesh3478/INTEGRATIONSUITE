@@ -1,0 +1,6 @@
+#Store metainfo properties
+#Sun Sep 20 10:52:22 UTC 2026
+SAP-MarkedSAP2SAP=SAP_TO_SAP_INTEGRATION
+description=Ping AMI Meter to get the voltage level
+source=SAPServiceCloud
+target=SAPS4HANA

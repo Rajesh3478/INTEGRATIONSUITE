@@ -1,0 +1,24 @@
+#Fri Jun 20 05:20:08 UTC 2025
+SourceAddress=/utilities/v2/c4c/s4/AMIPing
+S4_Address=http\://${property.S4HostandPort}/sap/bc/srt/scs/sap/isu_c4c_v2_ami_ping?sap-client\=${property.S4Client}
+Keep-Alive=1
+Allowchunking=1
+Issuer=issuer
+PrivateKeyAlias=
+Timeout=60000
+RequestExitAddress=/utilities/v2/c4c/s4/AMIPing/requestExit
+S4_LocationID=${property.LocationID}
+RoleBase=ESBMessaging.send
+ResponseExitAddress=/utilities/v2/c4c/s4/AMIPing/responseExit
+Proxy\ Type=sapcc
+Subject=Subject
+P_Request_Exit=false
+S4_Credential=S4-COMM-USER
+ReturnHttpReponseCodeasHeader=0
+BodySize=40
+Auth=RoleBased
+P_Response_Exit=false
+CompressMesage=0
+S4_Authentication=Basic
+CSRF=0
+CleanUpRequestHeaders=1
